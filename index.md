@@ -1,37 +1,62 @@
-## Welcome to GitHub Pages
+# docker-freeswitch
 
-You can use the [editor on GitHub](https://github.com/surendratiwari3/docker-freeswitch/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+# FreeSWITCH 1.10.x
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Maintainer
+Surendra Tiwari | <surendratiwari3@gmail.com> | [github](https://github.com/surendratiwari3)
 
-```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
+## Description
+FreeSWITCH deployment using docker that can provide way to add your changes configuration and your patches also.This image uses Buster Debian Linux.
 
-- Bulleted
-- List
+## Structure
 
-1. Numbered
-2. List
+docker-freeswitch have below structure
 
-**Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
+```txt
+.
+├── freeswitch
+│   ├── certs [In this directory, place all the certificates that freeswitch required]
+│   ├── conf  [Place all file configuration files that you have modifies in freeswitch vanila in respective folder]
+│   ├── patches [All freeswitch pathces]
+│   └── modules.conf [This file is used in freeswitch installation, please keep all the module that you want in your installation here]
+├── Dockerfile
+├── entrypoint.sh
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## TODO
 
-### Jekyll Themes
+```markdown
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/surendratiwari3/docker-freeswitch/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+- [ ]  running freeswitch without host mode @owner
+- [ ]  iptables definition for rtp rules @owner
+- [ ]  freeswitch custom module building support @owner
+- [ ]  support for other providers
 
-### Support or Contact
+```
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## Run Environment
+* `PROFILE`
+
+## Usage
+
+To build:
+
+```bash
+git clone https://github.com/surendratiwari3/docker-freeswitch.git
+cd docker-freeswitch
+docker build -t surendratiwari/freeswitch-buster .
+```
+
+To run:
+
+```bash
+docker run -d \
+    --name freeswitch \
+    --net=host \
+    -e "PROFILE=aws" \
+    surendratiwari/freeswitch-buster
+```
