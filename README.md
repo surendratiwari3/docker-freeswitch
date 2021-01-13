@@ -22,7 +22,7 @@ To build:
 ```bash
 git clone https://github.com/surendratiwari3/docker-freeswitch.git
 cd docker-freeswitch
-docker build --label=freeswitch-buster .
+docker build -t surendratiwari/freeswitch-buster .
 ```
 
 To run:
@@ -32,5 +32,5 @@ docker run -d \
     --name freeswitch \
     --net=host \
     -e "PROFILE=aws" \
-    freeswitch-buster
+    surendratiwari/freeswitch-buster
 ```
