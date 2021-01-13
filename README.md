@@ -5,7 +5,7 @@
 
 
 ## Maintainer
-Surendra Tiwari | <surendratiwari3@gmail.com> | [github](https://github.com/surendratiwari3@gmai.com)
+Surendra Tiwari | <surendratiwari3@gmail.com> | [github](https://github.com/surendratiwari3)
 
 
 ## Description
