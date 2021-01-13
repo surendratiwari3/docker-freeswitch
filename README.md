@@ -20,6 +20,8 @@ FreeSWITCH deployment using docker that can provide way to add your changes conf
 To build:
 
 ```bash
+git clone https://github.com/surendratiwari3/docker-freeswitch.git
+cd docker-freeswitch
 docker build --label=freeswitch-buster .
 ```
 
