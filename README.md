@@ -28,9 +28,10 @@ docker build -t surendratiwari/freeswitch-buster .
 To run:
 
 ```bash
-docker run -d \
+docker run -d \ 
     --name freeswitch \
     --net=host \
-    -e "PROFILE=aws" \
+    -e "PROFILE=aws" \  
+    --mount type=bind,source=/call_recordings,target=/call_recordings \
     surendratiwari/freeswitch-buster
 ```

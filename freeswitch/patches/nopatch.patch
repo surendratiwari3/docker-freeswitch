@@ -1,0 +1,18 @@
+diff --git a/README.md b/README.md
+index 77de167e3e..457980d55f 100644
+--- a/README.md
++++ b/README.md
+@@ -1,5 +1,6 @@
+ # FreeSWITCH
+ 
++
+ FreeSWITCH is a Software Defined Telecom Stack enabling the digital transformation from proprietary telecom switches to a versatile software implementation that runs on any commodity hardware. From a Raspberry PI to a multi-core server, FreeSWITCH can unlock the telecommunications potential of any device. Combined with our hosted cloud platform, SignalWire, FreeSWITCH can interconnect with the outside world and scale to any size.
+ 
+ Visit  [https://signalwire.com](https://signalwire.com/)  or https://github.com/signalwire for more info.
+@@ -60,4 +61,4 @@ Mailing list:
+ 
+   * http://lists.freeswitch.org/mailman/listinfo/freeswitch-users
+ 
+-**Thank you for using FreeSWITCH!**
+\ No newline at end of file
++**Thank you for using FreeSWITCH!**

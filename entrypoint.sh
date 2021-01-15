@@ -7,11 +7,13 @@ PROFILE=$PROFILE
 if [[ $PROFILE == "local" ]]; then
 	EXTERNAL_IP=$(ip addr show eth0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1)
 	INTERNAL_IP=$(ip addr show eth0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1)
-else if [[ $PROFILE == "aws" ]];then
+
+elif [[ $PROFILE == "aws" ]]; then
 	EXTERNAL_IP=$(curl --silent http://169.254.169.254/latest/meta-data/public-ipv4)
 	INTERNAL_IP=$(curl --silent http://169.254.169.254/latest/meta-data/local-ipv4)
-else 
-
+else
+	EXTERNAL_IP=$(ip addr show eth0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1)
+        INTERNAL_IP=$(ip addr show eth0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1)
 fi
 
 echo "[ENTRYPOINT] - FreeSWITCH Private IP: ${INTERNAL_IP}"
@@ -20,6 +22,7 @@ echo "[ENTRYPOINT] - FreeSWITCH Public IP: ${EXTERNAL_IP}"
 pushd /usr/local/freeswitch/conf
 	echo "[ENTRYPOINT] - Updating FreeSWITCH vars.xml"
 	sed -i "s/<EXTERNAL_IP>/$EXTERNAL_IP/g w /dev/stdout" vars.xml
+	sed -i "s/<INTERNAL_IP>/$INTERNAL_IP/g w /dev/stdout" vars.xml
 popd
 
 echo "[ENTRYPOINT] - Starting FreeSWITCH"
