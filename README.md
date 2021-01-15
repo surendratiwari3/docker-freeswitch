@@ -11,9 +11,35 @@ Surendra Tiwari | <surendratiwari3@gmail.com> | [github](https://github.com/sure
 ## Description
 FreeSWITCH deployment using docker that can provide way to add your changes configuration and your patches also.This image uses Buster Debian Linux.
 
+## Structure
+
+docker-freeswitch have below structure
+
+
+```txt
+.
+├── freeswitch
+│   ├── certs [In this directory, place all the certificates that freeswitch required]
+│   ├── conf  [Place all file configuration files that you have modifies in freeswitch vanila in respective folder]
+│   ├── patches [All freeswitch pathces]
+│   └── modules.conf [This file is used in freeswitch installation, please keep all the module that you want in your installation here]
+├── Dockerfile
+├── entrypoint.sh
+```
+
+## TODO
+
+```markdown
+
+- [ ]  running freeswitch without host mode @owner
+- [ ]  iptables definition for rtp rules @owner
+- [ ]  freeswitch custom module building support @owner
+- [ ]  support for other providers
+
+```
+
 ## Run Environment
 * `PROFILE`
-
 
 ## Usage
 
