@@ -20,8 +20,6 @@ WORKDIR /usr/local/src/freeswitch
 
 COPY freeswitch/patches /usr/local/src/freeswitch/pathces
 
-COPY freeswitch/custom_mod/asr_tts/mod_polly /usr/local/src/freeswitch/mod/asr_tts/mod_polly
-
 RUN git apply --ignore-whitespace /usr/local/src/freeswitch/pathces/*.patch
 
 COPY freeswitch/modules.conf /usr/local/src/freeswitch/modules.conf
@@ -29,10 +27,6 @@ COPY freeswitch/modules.conf /usr/local/src/freeswitch/modules.conf
 RUN ./bootstrap.sh -j && ./configure && make && make install
 
 RUN cp -Rf /usr/local/freeswitch/lib/pkgconfig/ /usr/local/lib/pkgconfig/
-
-WORKDIR /usr/local/src/freeswitch/mod/asr_tts/mod_polly
-
-RUN ./bootstrap.sh -j && ./configure && make && make install
 
 WORKDIR /usr/local/src/freeswitch
 
